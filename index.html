@@ -17,7 +17,7 @@
         body {
             background: url('https://cdn2.dropmarkusercontent.com/52043/994ed06d8829df9d524046cf76c85ca29fc0bf80adc510a178b687da6de5aa20/preview/4891_Ethiopia_2019_CG-.jpg?Expires=1748012792&Signature=eHD-HW-SDVL4ZT7s~HFxX6bNqXOECcOrXHpjvfr6Jc13HELDLcyOOApOTCKRO7b5J1ka79d18urVqPuBRc1drcu2t40pWcWyCZnU7Np3rRw5W66lwQQ3313cTpHZTQ6KNaTLZI6XLMdscqlGbQYmaSFwQHd1CYB2UuVT98pO0KEfom6UWeE0CWFaka2D00Vzh-7Hc~SN~cGzStIGeWBFwbuoCdVr7gQoZjOqP2DY-Cj21CmkEPj0-8uX9BmmlPeo7Js005Ka0PVXtF-aazZ0y6RzH3Gehp7-YdAJAI2fHdy4hbMxX8l8fQnqgvwydjub~pD9zTlxLVvs-DmvBB7XQA__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ') no-repeat center center/cover;
             color: white;
-            min-height: 100vh;
+            min-height: 150vh;
             display: flex;
             flex-direction: column;
         }
@@ -38,7 +38,14 @@
         .logo-container img {
             width: 10rem;
             height: auto;
-            margin-right: 0.05rem; 
+            margin-right: 0.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: #000000;
+            font-weight: 400;
+            text-transform: lowercase;
         }
 
         nav a {
@@ -122,6 +129,9 @@
             padding: 1.25rem;
             border-radius: 0.625rem;
             box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 40rem; /* Increased width for larger screens */
         }
 
         .donation-buttons {
@@ -190,6 +200,60 @@
             font-size: 1.125rem;
         }
 
+        .new-section {
+            background-color: #2E9DF7;
+            color: #FFFFFF;
+            padding: 3rem 2rem;
+            width: 100%;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .new-section-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin-bottom: 1.5rem;
+        }
+
+        .new-section img {
+            width: 300px;
+            height: auto;
+            max-width: 100%;
+            border-radius: 0.3rem;
+        }
+
+        .new-section p {
+            font-size: 1.125rem;
+            line-height: 1.5;
+            max-width: 31.25rem;
+            margin: 0;
+            flex: 1;
+            text-align: center;
+        }
+
+        .new-donate-btn {
+            width: 100%;
+            max-width: 31.25rem;
+            padding: 0.9375rem;
+            background: #FFC907;
+            border: none;
+            color: #333;
+            font-size: 1.125rem;
+            font-weight: bold;
+            border-radius: 0.3rem;
+            cursor: pointer;
+        }
+
+        .new-donate-btn:hover {
+            background: #e0b007;
+        }
+
         @media (max-width: 768px) {
             nav {
                 padding: 1rem;
@@ -197,6 +261,10 @@
 
             .logo-container img {
                 width: 8rem;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
             }
 
             nav a {
@@ -228,7 +296,7 @@
             .donation-box {
                 padding: 1rem;
                 width: 100%;
-                max-width: 20rem;
+                max-width: 30rem; /* Adjusted width for medium screens */
             }
 
             .donation-buttons {
@@ -253,6 +321,28 @@
                 padding: 1rem;
                 font-size: 1rem;
             }
+
+            .new-section {
+                padding: 2rem 1rem;
+            }
+
+            .new-section-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .new-section img {
+                width: 250px;
+            }
+
+            .new-section p {
+                font-size: 1rem;
+            }
+
+            .new-donate-btn {
+                padding: 0.75rem;
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -268,6 +358,10 @@
 
             .logo-container img {
                 width: 6rem;
+            }
+
+            .logo-text {
+                font-size: 1rem;
             }
 
             nav a {
@@ -294,7 +388,7 @@
 
             .donation-box {
                 padding: 0.75rem;
-                max-width: 100%;
+                max-width: 100%; /* Adjusted width for small screens */
             }
 
             .donation-buttons {
@@ -317,6 +411,23 @@
 
             .footer-text {
                 padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .new-section {
+                padding: 1rem 0.5rem;
+            }
+
+            .new-section img {
+                width: 200px;
+            }
+
+            .new-section p {
+                font-size: 0.9rem;
+            }
+
+            .new-donate-btn {
+                padding: 0.5rem;
                 font-size: 0.9rem;
             }
         }
@@ -357,6 +468,15 @@
         </div>
     </div>
 
+    <div class="new-section">
+        <div class="new-section-content">
+            <img src="https://d35lvrk9fb4ftj.cloudfront.net/eyJidWNrZXQiOiJkcm9wbWFyayIsImtleSI6IjUyMDQzL2QyMjI4NjdhYTQyN2MwMzljYTdkNWYwYzkzZTIyODQ1ZWIwZGMyYzdkMDQ5NzkwMDliNjAwYmNlYzRkN2QyMDMvcHJldmlldy80NzYwX0V0aGlvcGlhXzIwMTlfQ0ctLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjAwLCJoZWlnaHQiOjYwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfX19" alt="Left Image">
+            <p>At charity: water, we believe everyone deserves clean water. Our mission is simple yet urgent: to bring safe, sustainable drinking water to every person in need. We partner with local communities to build lasting water solutions, empowering people with the foundation for healthier, brighter futures. Every drop counts—together, we’re transforming lives, one well, one tap, and one community at a time.</p>
+            <img src="https://d35lvrk9fb4ftj.cloudfront.net/eyJidWNrZXQiOiJkcm9wbWFyayIsImtleSI6IjUyMDQzLzYwODc1MDA1OTdmMGRlMTY2NGRiYmY5NzQxNzVhYzdkZDc4ZTJlOWY4ZDRkZjU4NGVjNmQ4ZWEzZTE1NzI1NTIvcHJldmlldy80NjYxX0V0aGlvcGlhXzIwMTlfQ0ctLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjAwLCJoZWlnaHQiOjYwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ6VtZW50Ijp0cnVlfX19" alt="Right Image">
+        </div>
+        <button class="new-donate-btn" id="scrollToTopBtn">DONATE!</button>
+    </div>
+
     <div class="footer-text">
         Give families clean water!
     </div>
@@ -365,6 +485,7 @@
         const buttons = document.querySelectorAll('.donation-buttons button');
         const otherBtn = document.getElementById('otherBtn');
         const donationButtons = document.querySelector('.donation-buttons');
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
         buttons.forEach(button => {
             button.addEventListener('click', () => {
@@ -388,6 +509,13 @@
             customDiv.appendChild(input);
             donationButtons.replaceChild(customDiv, otherBtn);
             input.focus();
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
