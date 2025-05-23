@@ -6,7 +6,389 @@
     <title>Charity Water Landing Page</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Proxima Nova', sans-serif;
+        }
+
+        body {
+            background: url('https://cdn2.dropmarkusercontent.com/52043/994ed06d8829df9d524046cf76c85ca29fc0bf80adc510a178b687da6de5aa20/preview/4891_Ethiopia_2019_CG-.jpg?Expires=1748012792&Signature=eHD-HW-SDVL4ZT7s~HFxX6bNqXOECcOrXHpjvfr6Jc13HELDLcyOOApOTCKRO7b5J1ka79d18urVqPuBRc1drcu2t40pWcWyCZnU7Np3rRw5W66lwQQ3313cTpHZTQ6KNaTLZI6XLMdscqlGbQYmaSFwQHd1CYB2UuVT98pO0KEfom6UWeE0CWFaka2D00Vzh-7Hc~SN~cGzStIGeWBFwbuoCdVr7gQoZjOqP2DY-Cj21CmkEPj0-8uX9BmmlPeo7Js005Ka0PVXtF-aazZ0y6RzH3Gehp7-YdAJAI2fHdy4hbMxX8l8fQnqgvwydjub~pD9zTlxLVvs-DmvBB7XQA__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ') no-repeat center center/cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: #FFFFFF;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 10rem;
+            height: auto;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 10rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 0.3rem;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .give-water-btn {
+            background: #FFC907;
+            color: #333;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-grow: 1;
+            padding: 3rem 2rem;
+        }
+
+        .text-section {
+            max-width: 31.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .text-section h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .text-section p {
+            font-size: 1.125rem;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+        }
+
+        .donation-box {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 0.625rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+        }
+
+        .donation-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.625rem;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+
+        .donation-buttons button, .donation-buttons input {
+            padding: 0.9375rem;
+            font-size: 1rem;
+            border: 0.125rem solid #ccc;
+            background: #f5f5f5;
+            cursor: pointer;
+            border-radius: 0.3rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .donation-buttons button.selected {
+            background: #FFC907;
+            border-color: #FFC907;
+            color: #333;
+        }
+
+        .donation-buttons .custom-amount {
+            display: flex;
+            align-items: center;
+        }
+
+        .donation-buttons .custom-amount input {
+            flex-grow: 1;
+            padding-left: 1.5625rem;
+        }
+
+        .donation-buttons .custom-amount span {
+            position: absolute;
+            left: 0.9375rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .donate-btn {
+            width: 100%;
+            padding: 0.9375rem;
+            background: #FFC907;
+            border: none;
+            color: #333;
+            font-size: 1.125rem;
+            font-weight: bold;
+            border-radius: 0.3rem;
+            cursor: pointer;
+        }
+
+        .donate-btn:hover, .give-water-btn:hover {
+            background: #e0b007;
+        }
+
+        .footer-text {
+            background: #2E9DF7;
+            color: white;
+            text-align: center;
+            padding: 1.25rem;
+            font-size: 1.125rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .logo img {
+                width: 8rem;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .give-water-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .text-section {
+                max-width: 100%;
+            }
+
+            .text-section h1 {
+                font-size: 2rem;
+            }
+
+            .text-section p {
+                font-size: 1rem;
+            }
+
+            .donation-box {
+                padding: 1rem;
+                width: 100%;
+                max-width: 20rem;
+            }
+
+            .donation-buttons {
+                gap: 0.5rem;
+            }
+
+            .donation-buttons button, .donation-buttons input {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .donation-buttons .custom-amount span {
+                left: 0.75rem;
+            }
+
+            .donate-btn {
+                padding: 0.75rem;
+                font-size: 1rem;
+            }
+
+            .footer-text {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.5rem;
+            }
+
+            .logo {
+                margin-bottom: 0.5rem;
+            }
+
+            .logo img {
+                width: 6rem;
+            }
+
+            nav a {
+                margin: 0.3rem 0;
+                font-size: 0.8rem;
+            }
+
+            .give-water-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .main-content {
+                padding: 1rem 0.5rem;
+            }
+
+            .text-section h1 {
+                font-size: 1.5rem;
+            }
+
+            .text-section p {
+                font-size: 0.9rem;
+            }
+
+            .donation-box {
+                padding: 0.75rem;
+                max-width: 100%;
+            }
+
+            .donation-buttons {
+                gap: 0.3rem;
+            }
+
+            .donation-buttons button, .donation-buttons input {
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            .donation-buttons .custom-amount span {
+                left: 0.5rem;
+            }
+
+            .donate-btn {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .footer-text {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
 <body>
-    <!-- Add your HTML here -->
+    <nav>
+        <div class="logo">
+            <img src="path/to/charity-water-logo.png" alt="Charity: Water Logo">
+        </div>
+        <div>
+            <a href="#">Get Involved</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">About Us</a>
+                <div class="dropdown-content">
+                    <a href="#">Meet the Team</a>
+                    <a href="#">How we Work</a>
+                    <a href="#">See Results</a>
+                </div>
+            </div>
+        </div>
+        <button class="give-water-btn">Give Water</button>
+    </nav>
+
+    <div class="main-content">
+        <div class="text-section">
+            <h1>YOUR DONATION CAN CHANGE LIVES WITH CLEAN WATER</h1>
+            <p>Join a growing impact-focused community and help fund 100% transparent water projects, and discover the real stories of change your gift sparks.</p>
+        </div>
+        <div class="donation-box">
+            <div class="donation-buttons">
+                <button class="selected">$10</button>
+                <button>$20</button>
+                <button>$50</button>
+                <button id="otherBtn">Other</button>
+            </div>
+            <button class="donate-btn">DONATE!</button>
+        </div>
+    </div>
+
+    <div class="footer-text">
+        Give families clean water!
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.donation-buttons button');
+        const otherBtn = document.getElementById('otherBtn');
+        const donationButtons = document.querySelector('.donation-buttons');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(btn => btn.classList.remove('selected'));
+                button.classList.add('selected');
+            });
+        });
+
+        otherBtn.addEventListener('click', () => {
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            const customDiv = document.createElement('div');
+            customDiv.className = 'custom-amount';
+            const dollarSpan = document.createElement('span');
+            dollarSpan.textContent = '$';
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.min = '0';
+            input.step = '1';
+            input.value = '';
+            customDiv.appendChild(dollarSpan);
+            customDiv.appendChild(input);
+            donationButtons.replaceChild(customDiv, otherBtn);
+            input.focus();
+        });
+    </script>
 </body>
 </html>
