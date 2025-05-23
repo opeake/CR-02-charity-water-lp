@@ -30,14 +30,15 @@
             background: #FFFFFF;
         }
 
-        .logo {
+        .logo-container {
             display: flex;
             align-items: center;
         }
 
-        .logo img {
+        .logo-container img {
             width: 10rem;
             height: auto;
+            margin-right: 0.05rem; 
         }
 
         nav a {
@@ -189,13 +190,12 @@
             font-size: 1.125rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             nav {
                 padding: 1rem;
             }
 
-            .logo img {
+            .logo-container img {
                 width: 8rem;
             }
 
@@ -262,11 +262,11 @@
                 padding: 0.5rem;
             }
 
-            .logo {
+            .logo-container {
                 margin-bottom: 0.5rem;
             }
 
-            .logo img {
+            .logo-container img {
                 width: 6rem;
             }
 
@@ -324,8 +324,8 @@
 </head>
 <body>
     <nav>
-        <div class="logo">
-            <img src="path/to/charity-water-logo.png" alt="Charity: Water Logo">
+        <div class="logo-container">
+            <img src="https://kalaharimedia.com/press/wp-content/uploads/2023/11/CW_Water_Vertical_Color_4x-768x376.png" alt="Charity: Water Logo">
         </div>
         <div>
             <a href="#">Get Involved</a>
